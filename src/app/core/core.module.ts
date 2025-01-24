@@ -43,7 +43,7 @@ import { CoreComponent } from 'src/app/core/core.component';
     DashboardModule,
   ],
   providers:[
-    AuthGuard,
+    //AuthGuard,
     AuthService,
     ErrorHandlerService,
     NavbarService,
