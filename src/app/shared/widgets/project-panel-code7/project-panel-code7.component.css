@@ -1,0 +1,34 @@
+table{
+    height: 100%;
+    width: 100%;    
+}
+
+td{
+    width: 50%;
+    text-align: center;
+}
+
+.cards-dashboard{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.cards-dashboard p{
+    font-weight: bold;
+}
+
+.card-total{
+    background-color: #999999;
+}
+
+.card-erros{
+    background-color: #f39c12;
+}
+
+.card-accelerated{
+    background-color: #3498db;
+}
+
+.card-not-accelerated{
+    background-color: #e74c3c;
+}

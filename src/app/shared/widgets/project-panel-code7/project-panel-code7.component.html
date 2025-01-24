@@ -1,0 +1,26 @@
+<table class="cards-dashboard" *ngIf="!this.hasErrorLoadingData">
+    <tr>
+        <td class="card-total">
+            <h3>{{ this.panelData.nuTotal }}</h3>
+            <p>total</p>
+        </td>
+        <td class="card-erros">
+            <h3>{{ this.panelData.nuErros }}</h3>
+            <p>erros</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="card-accelerated">
+            <h3>{{ this.panelData.nuAccelerated }}</h3>
+            <p>acelerado</p>
+        </td>
+        <td class="card-not-accelerated">
+            <h3>{{ this.panelData.nuNotAccelerated }}</h3>
+            <p>não acelerado</p>
+        </td>
+    </tr>
+</table>
+
+<div *ngIf="this.hasErrorLoadingData">
+    <h1>Erro ao carregar dados</h1>
+</div>

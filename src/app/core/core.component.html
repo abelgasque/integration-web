@@ -1,0 +1,17 @@
+<app-navbar [hasBtnMenu]="true" [hasBtnUserAuth]="true"></app-navbar>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="this.navbarService.openedSideBar">
+        <app-sidebar-default></app-sidebar-default>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>
+
+<app-spinner></app-spinner>
+<app-messages></app-messages>
+<p-confirmDialog header="Confirme para continuar" acceptLabel="Sim" rejectLabel="Não" 
+[breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '25vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

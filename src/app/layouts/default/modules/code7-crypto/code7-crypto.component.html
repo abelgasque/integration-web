@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-12">
+        <h2 class="header">Code7 Criptográfia</h2>
+    </div>
+
+    <div class="col-12">
+        <button mat-button type="button" color="primary" (click)="addCryptoInList()">
+            <mat-icon>add</mat-icon>
+            Inserir
+        </button>
+        <button mat-button type="button" color="warn" (click)="removeCryptoInList()">
+            <mat-icon>remove</mat-icon>
+            Remover
+        </button>
+    </div>
+
+    <div class="col-12">
+        <p-accordion [multiple]="true">
+            <p-accordionTab *ngFor="let rowData of this.listCryptographers; index as i;"
+                [header]="'Critografador ' + (i+1)" [selected]="(i == 0) ? true : false">
+                <ng-template pTemplate="content">
+                    <form class="row form-crypto" #f="ngForm" autocomplete="off" (ngSubmit)="sendCryptography(f, i)">
+                        <div class="col-12 col-xl-6 p-fluid">
+
+                            <div class="p-inputgroup" *ngIf="rowData.isDecrypt">
+                                <span class="p-inputgroup-addon">
+                                    <button type="button" icon="pi pi-lock" class="p-button-rounded p-button-text"
+                                        (click)="typeCrypto(false, i)" pButton pRipple></button>
+                                </span>
+                                <span class="p-float-label" *ngIf="rowData.isDecrypt">
+                                    <textarea type="text" name="deDecrypt" [(ngModel)]="rowData.deDecrypt" rows="2"
+                                        cols="30" autoResize="autoResize" required maxlength="500"
+                                        pInputTextarea></textarea>
+                                    <label>Descriptografar *</label>
+                                </span>
+                            </div>
+
+                            <div class="p-inputgroup" *ngIf="!rowData.isDecrypt">
+                                <span class="p-inputgroup-addon">
+                                    <button type="button" icon="pi pi-unlock" class="p-button-rounded p-button-text"
+                                        (click)="typeCrypto(true, i)" pButton pRipple></button>
+                                </span>
+                                <span class="p-float-label">
+                                    <textarea id="float-input" type="text" name="deCrypto"
+                                        [(ngModel)]="rowData.deCrypto" rows="2" cols="30" autoResize="autoResize"
+                                        required maxlength="500" pInputTextarea></textarea>
+                                    <label for="float-input">Criptografar *</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xl-6 p-fluid">
+                            <textarea type="text" name="deCrypto" [(ngModel)]="rowData.deCrypto" rows="2" cols="30"
+                                autoResize="autoResize" disabled pInputTextarea *ngIf="rowData.isDecrypt"></textarea>
+                            <textarea type="text" name="deDecrypt" [(ngModel)]="rowData.deDecrypt" rows="2" cols="30"
+                                autoResize="autoResize" disabled pInputTextarea *ngIf="!rowData.isDecrypt"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <button pButton pRipple type="button" label="Cancelar" class="p-button-info p-button-text"
+                                (click)="cleanCryptography(f, i)">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                            <button pButton pRipple type="button" label="Enviar" class="p-button-info"
+                                (click)="sendCryptography(f, i)" [disabled]="!f.valid">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                        </div>
+                    </form>
+                </ng-template>
+            </p-accordionTab>
+        </p-accordion>
+    </div>
+</div>
