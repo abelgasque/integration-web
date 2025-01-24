@@ -38,20 +38,20 @@ const routes: Routes = [
         children: [
           { path: '', component: HomeComponent },
           {
-            path: 'send-message-whatsapp',
+            path: 'send-message',
             component: SendMessageWhatsAppComponent,
             children: [
               {
                 path: 'hsm',
                 component: SendHsmWhatsAppComponent,
-                canActivate: [AuthGuard],
+                //canActivate: [AuthGuard],
               }
             ]
           },
           {
-            path: 'code7-crypto',
+            path: 'crypto',
             component: Code7CryptoComponent,
-            canActivate: [AuthGuard],
+            //canActivate: [AuthGuard],
           },
         ]
       },
